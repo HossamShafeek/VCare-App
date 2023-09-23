@@ -59,8 +59,6 @@ class RegisterCubit extends Cubit<RegisterState> {
       emit(RegisterFailureState(failure.error));
     }, (registerModel) {
       this.registerModel = registerModel;
-      AppConstants.token = registerModel.data!.token!;
-      print(registerModel.data!.username);
       emit(RegisterSuccessState(registerModel));
     });
   }

@@ -48,11 +48,10 @@ class CustomButtonWidget extends StatelessWidget {
                             curve: Curves.linearToEaseOut,
                           );
                     } else {
-                      Navigator.pushReplacementNamed(context, Routes.loginView);
-                      // CacheHelper.setBoolean(key: 'onBoarding', value: true)
-                      //     .then((value) {
-                      //
-                      // });
+                      CacheHelper.setBoolean(key: 'onBoarding', value: true)
+                          .then((value) {
+                        Navigator.pushReplacementNamed(context, Routes.loginView);
+                      });
                     }
                   },
                   style: TextButton.styleFrom(

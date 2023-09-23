@@ -8,9 +8,11 @@ import 'package:vcare_app/feature/authentication/data/repository/authentication_
 import 'package:vcare_app/feature/authentication/presentation/cubits/login_cubit/login_cubit.dart';
 import 'package:vcare_app/feature/authentication/presentation/cubits/register_cubit/register_cubit.dart';
 import 'package:vcare_app/feature/authentication/presentation/login_view.dart';
-import 'package:vcare_app/feature/authentication/presentation/views/register.dart';
+import 'package:vcare_app/feature/authentication/presentation/views/register_view.dart';
+import 'package:vcare_app/feature/home/data/models/home_model/data.dart';
+import 'package:vcare_app/feature/home/data/models/home_model/doctor.dart';
 import 'package:vcare_app/feature/home/presentation/cubits/bottom_navigation_cubit/bottom_navigation_cubit.dart';
-import 'package:vcare_app/feature/home/presentation/views/home_view.dart';
+import 'package:vcare_app/feature/home/presentation/views/doctor_details_view.dart';
 import 'package:vcare_app/feature/home/presentation/views/layout_view.dart';
 import 'package:vcare_app/feature/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:vcare_app/feature/onboarding/presentation/views/onboarding_view.dart';
@@ -18,10 +20,12 @@ import 'package:vcare_app/feature/splash/presentation/views/splash_view.dart';
 
 class Routes {
   static const String slashView = '/';
-  static const String loginView = '/login_view';
-  static const String homeView = '/home_view';
   static const String onBoardingView = '/onBoarding_view';
   static const String registerView = '/register_view';
+  static const String loginView = '/login_view';
+  static const String homeView = '/home_view';
+  static const String doctorDetailsView = '/doctor_details_view';
+  static const String searchView = '/search_view';
 }
 
 class AppRoutes {
@@ -61,6 +65,12 @@ class AppRoutes {
           page: BlocProvider(
               create: (context) => BottomNavigationCubit(),
               child: const LayoutView()),
+          direction: AxisDirection.left,
+        );
+        case Routes.doctorDetailsView:
+          final doctor = settings.arguments as Doctor;
+        return PageSlideTransition(
+          page:  DoctorDetailsView(doctor: doctor),
           direction: AxisDirection.left,
         );
     }

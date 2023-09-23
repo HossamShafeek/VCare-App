@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vcare_app/config/icons/icons_broken.dart';
+import 'package:vcare_app/config/routes/app_routes.dart';
 import 'package:vcare_app/core/utils/app_colors.dart';
+import 'package:vcare_app/core/utils/app_constants.dart';
 import 'package:vcare_app/feature/home/presentation/cubits/bottom_navigation_cubit/bottom_navigation_cubit.dart';
 import 'package:vcare_app/feature/home/presentation/cubits/bottom_navigation_cubit/bottom_navigation_state.dart';
 
@@ -17,7 +19,7 @@ class LayoutView extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: AppColors.indigo,
           leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
-          title: Text(
+          title: const Text(
             'VCare',
             style: TextStyle(color: AppColors.white),
           ),
@@ -27,7 +29,7 @@ class LayoutView extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           backgroundColor: AppColors.indigo,
           onPressed: () {
-            BottomNavigationCubit.get(context).changeBottomNavigation(2);
+            Navigator.pushNamed(context, Routes.searchView);
           },
           child: const Icon(IconBroken.Search),
         ),
@@ -38,7 +40,7 @@ class LayoutView extends StatelessWidget {
           child: SizedBox(
             height: 55.h,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 IconButton(
                   onPressed: () {
@@ -47,7 +49,7 @@ class LayoutView extends StatelessWidget {
                   },
                   icon: Icon(
                     IconBroken.Home,
-                    color: BottomNavigationCubit.get(context).currentIndex == 2
+                    color: BottomNavigationCubit.get(context).currentIndex == 0
                         ? AppColors.indigo
                         : AppColors.grey,
                   ),
@@ -59,11 +61,12 @@ class LayoutView extends StatelessWidget {
                   },
                   icon: Icon(
                     IconBroken.Plus,
-                    color: BottomNavigationCubit.get(context).currentIndex == 2
+                    color: BottomNavigationCubit.get(context).currentIndex == 1
                         ? AppColors.indigo
                         : AppColors.grey,
                   ),
                 ),
+                SizedBox(width: AppConstants.padding10w),
                 IconButton(
                   onPressed: () {
                     BottomNavigationCubit.get(context)
@@ -71,7 +74,7 @@ class LayoutView extends StatelessWidget {
                   },
                   icon: Icon(
                     IconBroken.Time_Circle,
-                    color: BottomNavigationCubit.get(context).currentIndex == 2
+                    color: BottomNavigationCubit.get(context).currentIndex == 3
                         ? AppColors.indigo
                         : AppColors.grey,
                   ),
@@ -83,7 +86,7 @@ class LayoutView extends StatelessWidget {
                   },
                   icon: Icon(
                     IconBroken.Profile,
-                    color: BottomNavigationCubit.get(context).currentIndex == 2
+                    color: BottomNavigationCubit.get(context).currentIndex == 4
                         ? AppColors.indigo
                         : AppColors.grey,
                   ),
@@ -96,12 +99,3 @@ class LayoutView extends StatelessWidget {
     );
   }
 }
-
-//
-// bottomNavigationBar: BottomNavigationBar(
-// onTap: (index) {
-// BottomNavigationCubit.get(context).changeBottomNavigation(index);
-// },
-// currentIndex: BottomNavigationCubit.get(context).currentIndex,
-// items: BottomNavigationCubit.get(context).bottomNavigationBarItems,
-// ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vcare_app/config/routes/app_routes.dart';
 import 'package:vcare_app/core/api/api_services_implementation.dart';
 import 'package:vcare_app/core/utils/app_colors.dart';
 import 'package:vcare_app/feature/home/data/models/home_model/data.dart';
@@ -80,14 +81,14 @@ class HomeView extends StatelessWidget {
     return ListView.separated(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) =>
-            buildFirstListItem(model.doctors![index]),
+            buildFirstListItem(model.doctors![index],context),
         separatorBuilder: (context, index) => const SizedBox(
               width: 25,
             ),
         itemCount: model.doctors!.length);
   }
 
-  Container buildFirstListItem(Doctor model) => Container(
+  Container buildFirstListItem(Doctor doctor,context) => Container(
         width: 200,
         decoration: BoxDecoration(
             border: Border.all(color: AppColors.indigo, width: 1),
@@ -114,7 +115,7 @@ class HomeView extends StatelessWidget {
                       SizedBox(
                         width: double.infinity,
                         child: Text(
-                          model.name!,
+                          doctor.name!,
                           style: const TextStyle(
                             color: AppColors.black,
                             fontSize: 17,
@@ -124,7 +125,7 @@ class HomeView extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        model.description!,
+                        doctor.description!,
                         style: const TextStyle(
                             color: AppColors.grey, fontSize: 17),
                       ),
@@ -142,7 +143,9 @@ class HomeView extends StatelessWidget {
                     style: TextStyle(color: AppColors.grey, fontSize: 15),
                   ),
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, Routes.doctorDetailsView,arguments:doctor);
+                      },
                       icon: const Icon(
                         Icons.arrow_forward,
                         color: AppColors.indigo,

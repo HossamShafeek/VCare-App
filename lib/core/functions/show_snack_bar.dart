@@ -7,6 +7,7 @@ void showSuccessSnackBar({
   required String message,
 }) {
   showTopSnackBar(
+    displayDuration: const Duration(seconds: 2),
     Overlay.of(context),
     CustomSnackBar.success(
       message: message,
@@ -19,6 +20,7 @@ void showErrorSnackBar({
   required String message,
 }) {
   showTopSnackBar(
+    displayDuration: const Duration(seconds: 2),
     Overlay.of(context),
     CustomSnackBar.error(
       message: message,

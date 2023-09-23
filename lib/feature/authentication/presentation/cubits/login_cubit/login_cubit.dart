@@ -46,8 +46,6 @@ class LoginCubit extends Cubit<LoginState> {
       emit(LoginFailureState(failure.error));
     }, (loginModel) {
       this.loginModel = loginModel;
-      AppConstants.token = loginModel.data!.token!;
-      print(loginModel.data!.username);
       emit(LoginSuccessState(loginModel));
     });
   }

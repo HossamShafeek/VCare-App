@@ -5,12 +5,15 @@ class SearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        Center(
-          child: Text('Profile'),
-        )
-      ],
+    return Scaffold(
+      appBar: AppBar(),
+     body:  const  Column(
+          children: [
+            Center(
+              child: Text('Profile'),
+            )
+          ],
+        ),
     );
   }
 }

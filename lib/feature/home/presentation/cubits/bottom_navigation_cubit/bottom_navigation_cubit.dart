@@ -2,11 +2,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:vcare_app/config/icons/icons_broken.dart';
 import 'package:vcare_app/feature/home/presentation/cubits/bottom_navigation_cubit/bottom_navigation_state.dart';
-import 'package:vcare_app/feature/home/presentation/views/doctor_view.dart';
+import 'package:vcare_app/feature/home/presentation/views/doctors_view.dart';
 import 'package:vcare_app/feature/home/presentation/views/history_view.dart';
 import 'package:vcare_app/feature/home/presentation/views/home_view.dart';
 import 'package:vcare_app/feature/UserProfile/presentation/views/profile_view.dart';
-import 'package:vcare_app/feature/home/presentation/views/search_view.dart';
+import 'package:vcare_app/feature/search/presentation/views/search_view.dart';
 
 class BottomNavigationCubit extends Cubit<BottomNavigationState> {
   BottomNavigationCubit() : super(BottomNavigationInitialState());
@@ -22,8 +22,7 @@ class BottomNavigationCubit extends Cubit<BottomNavigationState> {
 
   List<Widget> bodyScreens = const [
     HomeView(),
-    DoctorView(),
-    SearchView(),
+    DoctorsView(),
     HistoryView(),
     ProfileView(),
   ];
