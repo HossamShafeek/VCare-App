@@ -11,4 +11,8 @@ abstract class AuthenticationRepository {
     required String phone,
     required String gender,
   });
+  Future<Either<Failure, AuthenticationModel>> userLogin({
+    required String email,
+    required String password,
+  });
 }

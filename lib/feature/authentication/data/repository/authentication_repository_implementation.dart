@@ -8,7 +8,6 @@ import 'package:vcare_app/feature/authentication/data/models/authentication_mode
 import 'package:vcare_app/feature/authentication/data/repository/authentication_repository.dart';
 
 class AuthenticationRepositoryImplementation extends AuthenticationRepository {
-
   final ApiServices apiServices;
 
   AuthenticationRepositoryImplementation(this.apiServices);
@@ -21,7 +20,7 @@ class AuthenticationRepositoryImplementation extends AuthenticationRepository {
     required String name,
     required String phone,
     required String gender,
-  }) async{
+  }) async {
     try {
       Response data = await apiServices.post(
           token: CacheHelper.getString(key: 'token').toString(),
@@ -37,8 +36,30 @@ class AuthenticationRepositoryImplementation extends AuthenticationRepository {
       return Right(AuthenticationModel.fromJson(data.data));
     } catch (error) {
       if (error is DioError) {
-        return Left(ServerFailure(
-            error.response!.data['message'].toString()));
+        return Left(ServerFailure(error.response!.data['message'].toString()));
+      } else {
+        return Left(ServerFailure(error.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, AuthenticationModel>> userLogin({
+    required String email,
+    required String password,
+  }) async{
+    try {
+      Response data = await apiServices.post(
+          token: CacheHelper.getString(key: 'token').toString(),
+          endPoint: EndPoints.login,
+          data: {
+            'email': email,
+            'password': password,
+          });
+      return Right(AuthenticationModel.fromJson(data.data));
+    } catch (error) {
+      if (error is DioError) {
+        return Left(ServerFailure(error.response!.data['message'].toString()));
       } else {
         return Left(ServerFailure(error.toString()));
       }
