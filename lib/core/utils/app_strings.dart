@@ -14,4 +14,5 @@ class AppStrings {
   static const String enterEmail = 'Enter your email';
   static const String password = 'password';
   static const String enterPassword = 'Enter your password';
+  static const String keepMeLoggedIn = 'Keep me logged in';
 }

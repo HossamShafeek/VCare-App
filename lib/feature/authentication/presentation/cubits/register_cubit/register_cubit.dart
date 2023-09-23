@@ -22,12 +22,19 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   static RegisterCubit get(context) => BlocProvider.of(context);
 
+  bool isShowConfirmPassword = true;
   bool isShowPassword = true;
+
+  void changeConfirmPasswordVisibility() {
+    isShowConfirmPassword = !isShowConfirmPassword;
+    emit(RegisterChangeConfirmPasswordVisibilityState());
+  }
 
   void changePasswordVisibility() {
     isShowPassword = !isShowPassword;
     emit(RegisterChangePasswordVisibilityState());
   }
+
   int gender = 0;
 
   void changeGroupValue({required int newValue}) {
@@ -44,7 +51,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       name: nameController.text,
       email: emailController.text,
       password: passwordController.text,
-     confirmPassword: confirmPasswordController.text,
+      confirmPassword: confirmPasswordController.text,
       phone: phoneController.text,
       gender: gender.toString(),
     );

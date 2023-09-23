@@ -5,7 +5,7 @@ import 'package:vcare_app/config/routes/app_routes.dart';
 
 import 'config/themes/app_theme.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
   runApp(const VCareApp());

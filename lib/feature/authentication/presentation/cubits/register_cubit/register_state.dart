@@ -20,4 +20,6 @@ class RegisterFailureState extends RegisterState {
 
 class RegisterChangePasswordVisibilityState extends RegisterState {}
 
+class RegisterChangeConfirmPasswordVisibilityState extends RegisterState {}
+
 class RegisterChangeGenderState extends RegisterState {}

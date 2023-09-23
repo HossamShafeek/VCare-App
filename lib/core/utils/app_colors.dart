@@ -20,4 +20,5 @@ class AppColors {
 
   static const List<Color> deepPurpleGradient = [deepPurple, deepPurpleAccent];
   static const List<Color> indigoGradient = [indigo, indigoAccent];
+  static const List<Color> backgroundGradient = [indigoAccent, indigo];
 }

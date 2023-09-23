@@ -23,4 +23,15 @@ class CacheHelper {
   }) async {
     return await _sharedPreferences.remove(key);
   }
+
+  static Future<bool> setBoolean({
+    required String key,
+    required bool value,
+  }) async {
+    return await _sharedPreferences.setBool(key, value);
+  }
+
+  static bool? getBoolean({required String key}) {
+    return _sharedPreferences.getBool(key);
+  }
 }

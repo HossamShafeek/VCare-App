@@ -16,7 +16,7 @@ class ApiServicesImplementation implements ApiServices {
   }
 
   @override
-  Future<Map<String, dynamic>> get({
+  Future<Response> get({
     required String endPoint,
     Map<String, dynamic>? queryParameters,
     String? token,
@@ -26,7 +26,7 @@ class ApiServicesImplementation implements ApiServices {
       'Accept': 'application/json',
     };
     Response data = await _dio!.get(endPoint, queryParameters: queryParameters);
-    return data.data;
+    return data;
   }
 
   @override

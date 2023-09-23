@@ -22,17 +22,15 @@ class AuthenticationRepositoryImplementation extends AuthenticationRepository {
     required String gender,
   }) async {
     try {
-      Response data = await apiServices.post(
-          token: CacheHelper.getString(key: 'token').toString(),
-          endPoint: EndPoints.register,
-          data: {
-            'name': name,
-            'email': email,
-            'phone': phone,
-            'password': password,
-            'gender': gender,
-            'password_confirmation': confirmPassword,
-          });
+      Response data =
+          await apiServices.post(endPoint: EndPoints.register, data: {
+        'name': name,
+        'email': email,
+        'phone': phone,
+        'password': password,
+        'gender': gender,
+        'password_confirmation': confirmPassword,
+      });
       return Right(AuthenticationModel.fromJson(data.data));
     } catch (error) {
       if (error is DioError) {
@@ -47,19 +45,16 @@ class AuthenticationRepositoryImplementation extends AuthenticationRepository {
   Future<Either<Failure, AuthenticationModel>> userLogin({
     required String email,
     required String password,
-  }) async{
+  }) async {
     try {
-      Response data = await apiServices.post(
-          token: CacheHelper.getString(key: 'token').toString(),
-          endPoint: EndPoints.login,
-          data: {
-            'email': email,
-            'password': password,
-          });
+      Response data = await apiServices.post(endPoint: EndPoints.login, data: {
+        'email': email,
+        'password': password,
+      });
       return Right(AuthenticationModel.fromJson(data.data));
     } catch (error) {
       if (error is DioError) {
-        return Left(ServerFailure(error.response!.data['message'].toString()));
+        return Left(ServerFailure(error.response!.data.toString()));
       } else {
         return Left(ServerFailure(error.toString()));
       }

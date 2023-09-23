@@ -27,9 +27,15 @@ class LoginCubit extends Cubit<LoginState> {
     emit(LoginChangePasswordVisibilityState());
   }
 
+  bool keepMeLoggedIn = false;
+  void changeKeepMeLoggedIn({required bool value}) {
+    keepMeLoggedIn = value;
+    emit(LoginChangeKeepMeLoggedInState());
+  }
+
   AuthenticationModel? loginModel;
 
-  Future<void> userRegister() async {
+  Future<void> userLogin() async {
     emit(LoginLoadingState());
     Either<Failure, AuthenticationModel> result;
     result = await authenticationRepository.userLogin(
