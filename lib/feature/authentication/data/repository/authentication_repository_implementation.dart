@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:vcare_app/config/local/cache_helper.dart';
 import 'package:vcare_app/core/api/api_services.dart';
 import 'package:vcare_app/core/api/end_points.dart';
 import 'package:vcare_app/core/errors/failures.dart';
