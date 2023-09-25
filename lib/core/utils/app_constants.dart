@@ -4,8 +4,10 @@ import 'package:flutter/services.dart';
 
 import 'app_colors.dart';
 
+
+
 class AppConstants {
-  static late String token;
+  static String token='';
   static const String path = 'assets/images/';
   static final double defaultPadding = 12.h;
   static final double defaultPaddingW = 12.w;
@@ -32,6 +34,7 @@ class AppConstants {
   static final double iconSize28 = 28.sp;
   static final double iconSize33 = 33.sp;
   static final double iconSize22 = 22.sp;
+  static final double iconSize20 = 20.sp;
   static final double circularSize22 = 22.sp;
 
   static final OutlineInputBorder focusedBorder = OutlineInputBorder(
@@ -47,13 +50,13 @@ class AppConstants {
     borderSide: BorderSide.none,
   );
 
-  static const SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(
-    statusBarIconBrightness: Brightness.dark,
+  static const SystemUiOverlayStyle systemUiOverlayStyleLight = SystemUiOverlayStyle(
+    statusBarIconBrightness: Brightness.light,
     statusBarColor: AppColors.transparent,
   );
-  static const SystemUiOverlayStyle systemUiOverlayStyleForDrawer =
+  static const SystemUiOverlayStyle systemUiOverlayStyleDark =
       SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
-    statusBarIconBrightness: Brightness.light,
+    statusBarIconBrightness: Brightness.dark,
   );
 }

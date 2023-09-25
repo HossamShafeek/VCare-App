@@ -9,13 +9,13 @@ ThemeData appTheme() {
     primarySwatch: Colors.indigo,
     unselectedWidgetColor: AppColors.grey,
     textTheme: GoogleFonts.montserratTextTheme(),
-    primaryColor: AppColors.deepPurple,
+    primaryColor: AppColors.indigo,
     //primarySwatch: MaterialColor(0xff673ab7, color),
     scaffoldBackgroundColor: AppColors.white,
     appBarTheme: AppBarTheme(
         color: Colors.transparent,
         elevation: 0,
-        systemOverlayStyle: AppConstants.systemUiOverlayStyle,
+        systemOverlayStyle: AppConstants.systemUiOverlayStyleLight,
         titleTextStyle: AppStyles.textStyle25,
         centerTitle: true),
   );

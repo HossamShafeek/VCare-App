@@ -9,7 +9,6 @@ import 'package:vcare_app/feature/home/data/repository/home_repository_implement
 import 'package:vcare_app/feature/home/presentation/cubits/home_cubit.dart';
 import 'package:vcare_app/feature/home/presentation/cubits/home_state.dart';
 
-
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
 
@@ -81,14 +80,14 @@ class HomeView extends StatelessWidget {
     return ListView.separated(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) =>
-            buildFirstListItem(model.doctors![index],context),
+            buildFirstListItem(model.doctors![index], context),
         separatorBuilder: (context, index) => const SizedBox(
               width: 25,
             ),
         itemCount: model.doctors!.length);
   }
 
-  Container buildFirstListItem(Doctor doctor,context) => Container(
+  Container buildFirstListItem(Doctor doctor, context) => Container(
         width: 200,
         decoration: BoxDecoration(
             border: Border.all(color: AppColors.indigo, width: 1),
@@ -144,7 +143,8 @@ class HomeView extends StatelessWidget {
                   ),
                   IconButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, Routes.doctorDetailsView,arguments:doctor);
+                        Navigator.pushNamed(context, Routes.doctorDetailsView,
+                            arguments: doctor);
                       },
                       icon: const Icon(
                         Icons.arrow_forward,

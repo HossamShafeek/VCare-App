@@ -22,9 +22,9 @@ class _SplashViewState extends State<SplashView> {
   void navigateToOnBoardingView() {
     Future.delayed(const Duration(seconds: 2)).then((value) {
       if (CacheHelper.getBoolean(key: 'onBoarding') ?? false) {
-        if(AppConstants.token.isNotEmpty){
+        if (AppConstants.token.isNotEmpty) {
           return Navigator.pushReplacementNamed(context, Routes.homeView);
-        }else{
+        } else {
           return Navigator.pushReplacementNamed(context, Routes.loginView);
         }
       } else {
@@ -39,7 +39,7 @@ class _SplashViewState extends State<SplashView> {
     return const Scaffold(
       resizeToAvoidBottomInset: false,
       body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: AppConstants.systemUiOverlayStyle,
+        value: AppConstants.systemUiOverlayStyleDark,
         child: SplashViewBody(),
       ),
     );

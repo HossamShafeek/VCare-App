@@ -5,7 +5,6 @@ import 'package:vcare_app/feature/home/data/models/home_model/home_model.dart';
 import 'package:vcare_app/feature/home/data/repository/home_repository.dart';
 import 'package:vcare_app/feature/home/presentation/cubits/home_state.dart';
 
-
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this.homeRepository) : super(HomeInitialState());
 

@@ -40,9 +40,7 @@ class ProfileView extends StatelessWidget {
                   Text("edit account details ",
                       style: AppStyles.textStyle18
                           .copyWith(color: AppColors.grey)),
-                  InkWell(
-                    onTap: (){},
-                      child: const Icon(IconBroken.Edit)),
+                  InkWell(onTap: () {}, child: const Icon(IconBroken.Edit)),
                 ],
               ),
               SizedBox(

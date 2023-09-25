@@ -44,6 +44,10 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   AuthenticationModel? registerModel;
 
+  Future<void> getToken({required String token})async{
+    AppConstants.token = token;
+  }
+
   Future<void> userRegister() async {
     emit(RegisterLoadingState());
     Either<Failure, AuthenticationModel> result;

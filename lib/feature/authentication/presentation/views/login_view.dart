@@ -10,7 +10,9 @@ class LoginView extends StatelessWidget {
     return const Scaffold(
       resizeToAvoidBottomInset: false,
       body: AnnotatedRegion(
-          value: AppConstants.systemUiOverlayStyle, child: LoginViewBody()),
+        value: AppConstants.systemUiOverlayStyleDark,
+        child: LoginViewBody(),
+      ),
     );
   }
 }

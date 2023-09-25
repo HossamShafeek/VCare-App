@@ -1,5 +1,3 @@
-
-
 import 'package:vcare_app/feature/home/data/models/home_model/home_model.dart';
 
 abstract class HomeState {}

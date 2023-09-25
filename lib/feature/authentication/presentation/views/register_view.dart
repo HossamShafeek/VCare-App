@@ -10,7 +10,7 @@ class RegisterView extends StatelessWidget {
     return const Scaffold(
       resizeToAvoidBottomInset: false,
       body: AnnotatedRegion(
-        value: AppConstants.systemUiOverlayStyle,
+        value: AppConstants.systemUiOverlayStyleDark,
         child: RegisterViewBody(),
       ),
     );

@@ -7,15 +7,17 @@ import 'package:vcare_app/core/utils/app_strings.dart';
 import 'package:vcare_app/feature/authentication/data/repository/authentication_repository_implementation.dart';
 import 'package:vcare_app/feature/authentication/presentation/cubits/login_cubit/login_cubit.dart';
 import 'package:vcare_app/feature/authentication/presentation/cubits/register_cubit/register_cubit.dart';
-import 'package:vcare_app/feature/authentication/presentation/login_view.dart';
+import 'package:vcare_app/feature/authentication/presentation/views/login_view.dart';
 import 'package:vcare_app/feature/authentication/presentation/views/register_view.dart';
-import 'package:vcare_app/feature/home/data/models/home_model/data.dart';
 import 'package:vcare_app/feature/home/data/models/home_model/doctor.dart';
 import 'package:vcare_app/feature/home/presentation/cubits/bottom_navigation_cubit/bottom_navigation_cubit.dart';
 import 'package:vcare_app/feature/home/presentation/views/doctor_details_view.dart';
 import 'package:vcare_app/feature/home/presentation/views/layout_view.dart';
 import 'package:vcare_app/feature/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:vcare_app/feature/onboarding/presentation/views/onboarding_view.dart';
+import 'package:vcare_app/feature/search/data/repository/search_repository_implementation.dart';
+import 'package:vcare_app/feature/search/presentation/cubit/search_cubit.dart';
+import 'package:vcare_app/feature/search/presentation/views/search_view.dart';
 import 'package:vcare_app/feature/splash/presentation/views/splash_view.dart';
 
 class Routes {
@@ -52,8 +54,9 @@ class AppRoutes {
           ),
         );
       case Routes.registerView:
-        return MaterialPageRoute(
-          builder: (context) => BlocProvider(
+        return PageSlideTransition(
+          direction: AxisDirection.left,
+          page: BlocProvider(
             create: (context) => RegisterCubit(
                 AuthenticationRepositoryImplementation(
                     ApiServicesImplementation())),
@@ -62,15 +65,23 @@ class AppRoutes {
         );
       case Routes.homeView:
         return PageSlideTransition(
+          direction: AxisDirection.left,
           page: BlocProvider(
               create: (context) => BottomNavigationCubit(),
               child: const LayoutView()),
+
+        );
+      case Routes.doctorDetailsView:
+        final doctor = settings.arguments as Doctor;
+        return PageSlideTransition(
+          page: DoctorDetailsView(doctor: doctor),
           direction: AxisDirection.left,
         );
-        case Routes.doctorDetailsView:
-          final doctor = settings.arguments as Doctor;
+      case Routes.searchView:
         return PageSlideTransition(
-          page:  DoctorDetailsView(doctor: doctor),
+          page: BlocProvider(
+              create: (context) => SearchCubit(SearchRepositoryImplementation(ApiServicesImplementation())),
+              child: const SearchView()),
           direction: AxisDirection.left,
         );
     }

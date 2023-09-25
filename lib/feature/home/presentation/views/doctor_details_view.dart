@@ -19,71 +19,72 @@ class DoctorDetailsView extends StatelessWidget {
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
-    children: [
-          const ImageWidget(),
-          Padding(
-            padding: EdgeInsets.all(AppConstants.defaultPadding),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                 Text(doctor.name!,
-                    style: TextStyle(
-                      fontSize: 34,
-                      fontWeight: FontWeight.w400,
-                    )),
-                SizedBox(
-                  height: 17.h,
-                ),
-                 Text(
-                    doctor.description!,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    )),
-                SizedBox(
-                  height: 11.h,
-                ),
-                Container(
-                    width: double.infinity,
-                    height: 1,
-                    decoration: const BoxDecoration(color: Color(0x4c020d18))),
-                SizedBox(
-                  height: 12.h,
-                ),
-                Text("Select date",
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w400,
-                    )),
-                const CustomDatePicker(),
-                SizedBox(
-                  height: 18.h,
-                ),
-                Text("Select time",
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w400,
-                    )),
-                SizedBox(
-                  height: 8.h,
-                ),
-                 const Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const ImageWidget(),
+              Padding(
+                padding: EdgeInsets.all(AppConstants.defaultPadding),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TimeCard(time: "7:00"),
-                    TimeCard(time: "9:00"),
-                    TimeCard(time: "13:00"),
-                    TimeCard(time: "15:00"),
+                    Text(doctor.name!,
+                        style: TextStyle(
+                          fontSize: 34,
+                          fontWeight: FontWeight.w400,
+                        )),
+                    SizedBox(
+                      height: 17.h,
+                    ),
+                    Text(doctor.description!,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                        )),
+                    SizedBox(
+                      height: 11.h,
+                    ),
+                    Container(
+                        width: double.infinity,
+                        height: 1,
+                        decoration:
+                            const BoxDecoration(color: Color(0x4c020d18))),
+                    SizedBox(
+                      height: 12.h,
+                    ),
+                    Text("Select date",
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w400,
+                        )),
+                    const CustomDatePicker(),
+                    SizedBox(
+                      height: 18.h,
+                    ),
+                    Text("Select time",
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w400,
+                        )),
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        TimeCard(time: "7:00"),
+                        TimeCard(time: "9:00"),
+                        TimeCard(time: "13:00"),
+                        TimeCard(time: "15:00"),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 33.h,
+                    ),
+                    GradientButton(
+                        onPressed: () {}, title: "Book An Appointment")
                   ],
                 ),
-                SizedBox(
-                  height: 33.h,
-                ),
-                GradientButton(onPressed: () {}, title: "Book An Appointment")
-              ],
-            ),
-          )
-    ],
+              )
+            ],
           ),
         ),
       ),

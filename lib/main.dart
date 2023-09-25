@@ -9,7 +9,7 @@ import 'config/themes/app_theme.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
-  AppConstants.token = CacheHelper.getString(key: 'token')??'';
+  AppConstants.token = CacheHelper.getString(key: 'token') ?? '';
   runApp(const VCareApp());
 }
 

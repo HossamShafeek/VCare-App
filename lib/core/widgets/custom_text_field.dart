@@ -53,9 +53,8 @@ class CustomTextField extends StatelessWidget {
             onTapOutside: (value) {
               FocusScope.of(context).unfocus();
             },
-            //maxLines: maxLines ?? 1,
+            maxLines: maxLines ?? 1,
             controller: controller,
-            //cursorColor: AppColors.blue,
             keyboardType: textInputType,
             maxLength: maxLength,
             obscureText: obscureText,

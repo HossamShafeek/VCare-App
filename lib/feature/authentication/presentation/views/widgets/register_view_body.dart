@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:vcare_app/config/local/cache_helper.dart';
 import 'package:vcare_app/config/routes/app_routes.dart';
 import 'package:vcare_app/core/functions/show_snack_bar.dart';
 import 'package:vcare_app/core/utils/app_constants.dart';
@@ -22,10 +21,7 @@ class RegisterViewBody extends StatelessWidget {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
         if (state is RegisterSuccessState) {
-          CacheHelper.setString(
-            key: 'token',
-            value: RegisterCubit.get(context).registerModel!.data!.token!,
-          );
+          AppConstants.token=state.authenticationModel.data!.token!;
           Navigator.pushNamed(context, Routes.homeView);
           showSuccessSnackBar(
               context: context, message: state.authenticationModel.message!);
@@ -40,9 +36,9 @@ class RegisterViewBody extends StatelessWidget {
           opacity: 0.5,
           progressIndicator: const CircularProgressIndicator(),
           child: SafeArea(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.all(AppConstants.defaultPadding),
+            child: Padding(
+              padding: EdgeInsets.all(AppConstants.defaultPadding),
+              child: SingleChildScrollView(
                 child: Form(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,

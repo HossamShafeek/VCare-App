@@ -50,7 +50,8 @@ class CustomButtonWidget extends StatelessWidget {
                     } else {
                       CacheHelper.setBoolean(key: 'onBoarding', value: true)
                           .then((value) {
-                        Navigator.pushReplacementNamed(context, Routes.loginView);
+                        Navigator.pushReplacementNamed(
+                            context, Routes.loginView);
                       });
                     }
                   },
