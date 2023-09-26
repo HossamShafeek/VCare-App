@@ -53,7 +53,7 @@ class AuthenticationRepositoryImplementation extends AuthenticationRepository {
       return Right(AuthenticationModel.fromJson(data.data));
     } catch (error) {
       if (error is DioError) {
-        return Left(ServerFailure(error.response!.data.toString()));
+        return Left(ServerFailure(error.response!.data['message']));
       } else {
         return Left(ServerFailure(error.toString()));
       }

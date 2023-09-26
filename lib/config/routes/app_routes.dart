@@ -6,6 +6,7 @@ import 'package:vcare_app/core/api/api_services_implementation.dart';
 import 'package:vcare_app/core/utils/app_strings.dart';
 import 'package:vcare_app/feature/appointment/data/model/appointments_model/datum.dart';
 import 'package:vcare_app/feature/appointment/data/repository/appointment_repository_implementation.dart';
+import 'package:vcare_app/feature/appointment/presentation/cubits/Book_Appointment/book_appointment_cubit.dart';
 import 'package:vcare_app/feature/appointment/presentation/cubits/get_all_appointments_cubit/get_all_appointments_cubit.dart';
 import 'package:vcare_app/feature/appointment/presentation/views/appointment_details.dart';
 import 'package:vcare_app/feature/authentication/data/repository/authentication_repository_implementation.dart';
@@ -21,7 +22,7 @@ import 'package:vcare_app/feature/home/presentation/cubits/get_all_specializatio
 import 'package:vcare_app/feature/home/presentation/cubits/get_random_specializations_cubit/get_random_specializations_cubit.dart';
 import 'package:vcare_app/feature/home/presentation/cubits/specialization_cubit/specialization_cubit.dart';
 import 'package:vcare_app/feature/home/presentation/views/specialization_view.dart';
-import 'package:vcare_app/feature/home/presentation/views/widgets/doctor_details_view.dart';
+import 'package:vcare_app/feature/home/presentation/views/doctor_details_view.dart';
 import 'package:vcare_app/feature/home/presentation/views/layout_view.dart';
 import 'package:vcare_app/feature/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:vcare_app/feature/onboarding/presentation/views/onboarding_view.dart';
@@ -95,11 +96,13 @@ class AppRoutes {
               ),
               BlocProvider(
                 create: (context) => GetAllAppointmentCubit(
-                    AppointmentRepositoryImplementation(ApiServicesImplementation())),
+                    AppointmentRepositoryImplementation(
+                        ApiServicesImplementation())),
               ),
               BlocProvider(
                 create: (context) => GetUserProfileCubit(
-                    ProfileRepositoryImplementation(ApiServicesImplementation())),
+                    ProfileRepositoryImplementation(
+                        ApiServicesImplementation())),
               ),
             ],
             child: const LayoutView(),
@@ -108,7 +111,11 @@ class AppRoutes {
       case Routes.doctorDetailsView:
         final doctor = settings.arguments as Doctor;
         return PageSlideTransition(
-          page: DoctorDetailsView(doctor: doctor),
+          page: BlocProvider(
+              create: (context) => BookAppointmentCubit(
+                  AppointmentRepositoryImplementation(
+                      ApiServicesImplementation())),
+              child: DoctorDetailsView(doctor: doctor)),
           direction: AxisDirection.left,
         );
       case Routes.searchView:
@@ -127,7 +134,7 @@ class AppRoutes {
               child: SpecializationView(specialization: specialization)),
           direction: AxisDirection.left,
         );
-        case Routes.appointmentDetailsView:
+      case Routes.appointmentDetailsView:
         final appointment = settings.arguments as Appointment;
         return PageSlideTransition(
           page: AppointmentDetailsView(appointment: appointment),

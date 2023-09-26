@@ -45,8 +45,6 @@ class LoginTextsFieldsSection extends StatelessWidget {
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Please enter your password';
-                } else if (value.length < 8) {
-                  return 'Password is too short';
                 }
                 return null;
               },

@@ -42,6 +42,7 @@ class SpecializationView extends StatelessWidget {
                   ? IconButton(
                       onPressed: () {
                         SpecializationCubit.get(context).stopSearch();
+                        Navigator.pop(context);
                       },
                       icon: const Icon(
                         Icons.clear,

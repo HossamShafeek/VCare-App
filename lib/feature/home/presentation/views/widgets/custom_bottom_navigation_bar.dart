@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vcare_app/config/icons/icons_broken.dart';
 import 'package:vcare_app/core/utils/app_colors.dart';
 import 'package:vcare_app/core/utils/app_constants.dart';
+import 'package:vcare_app/feature/appointment/presentation/cubits/get_all_appointments_cubit/get_all_appointments_cubit.dart';
 import 'package:vcare_app/feature/home/presentation/cubits/bottom_navigation_cubit/bottom_navigation_cubit.dart';
 import 'package:vcare_app/feature/home/presentation/cubits/bottom_navigation_cubit/bottom_navigation_state.dart';
 
@@ -51,6 +52,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                   onPressed: () {
                     BottomNavigationCubit.get(context)
                         .changeBottomNavigation(2);
+                    GetAllAppointmentCubit.get(context).getAllAppointments();
                   },
                   icon: Icon(
                     IconBroken.Time_Circle,

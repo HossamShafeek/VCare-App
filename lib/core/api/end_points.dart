@@ -7,4 +7,5 @@ class EndPoints {
   static const String getAllDoctors = 'doctor/index';
   static const String getUserProfile = 'user/profile';
   static const String getAllAppointment = 'appointment/index';
+  static const String bookAppointment = '/appointment/store';
 }

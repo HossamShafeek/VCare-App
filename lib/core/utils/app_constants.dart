@@ -27,8 +27,10 @@ class AppConstants {
   static final double radius10w = 10.w;
   static final double radius5w = 5.w;
   static final double radius30sp = 30.sp;
+  static final double radius19sp = 19.sp;
   static final double radius28sp = 28.sp;
   static final double iconSize24 = 24.sp;
+  static final double iconSize23 = 23.sp;
   static final double iconSize18 = 18.sp;
   static final double iconSize28 = 28.sp;
   static final double iconSize33 = 33.sp;
