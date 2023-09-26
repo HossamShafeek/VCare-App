@@ -1,4 +1,4 @@
-import 'package:vcare_app/feature/home/data/models/home_model/doctor.dart';
+import 'package:vcare_app/feature/home/data/models/specializations_model/doctor.dart';
 
 abstract class SearchState {}
 
@@ -15,7 +15,6 @@ class SearchSuccessState extends SearchState {
   final List<Doctor> doctors;
 
   SearchSuccessState(this.doctors);
-
 }
 
 class GetSearchedDoctorsList extends SearchState {}

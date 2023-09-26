@@ -12,7 +12,7 @@ class CustomBackButton extends StatelessWidget {
       icon: Icon(
         IconBroken.Arrow___Left_2,
         size: AppConstants.iconSize28,
-        color: color ?? AppColors.deepPurple,
+        color: color ?? AppColors.white,
       ),
       onPressed: () {
         Navigator.pop(context);

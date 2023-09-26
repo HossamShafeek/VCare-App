@@ -25,12 +25,12 @@ abstract class AppStyles {
 
   static final textStyle20 = TextStyle(
     fontSize: 18.sp,
-    color: AppColors.deepPurple,
+    color: AppColors.indigo,
   );
 
   static final textStyle25 = TextStyle(
     fontSize: 23.sp,
-    color: AppColors.deepPurple,
+    color: AppColors.white,
   );
 
   static final textStyle30 = TextStyle(

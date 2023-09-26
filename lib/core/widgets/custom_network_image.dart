@@ -15,6 +15,8 @@ class CustomNetworkImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
+      height: double.infinity,
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadius),
@@ -24,7 +26,7 @@ class CustomNetworkImage extends StatelessWidget {
         imageUrl: image,
         fit: BoxFit.cover,
         height: double.infinity,
-        errorWidget: (context, url, error) =>  Icon(
+        errorWidget: (context, url, error) => Icon(
           IconBroken.Info_Square,
           color: AppColors.indigo,
           size: AppConstants.iconSize24,

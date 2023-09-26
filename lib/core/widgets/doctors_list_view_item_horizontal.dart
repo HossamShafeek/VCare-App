@@ -6,10 +6,10 @@ import 'package:vcare_app/core/utils/app_colors.dart';
 import 'package:vcare_app/core/utils/app_constants.dart';
 import 'package:vcare_app/core/utils/app_styles.dart';
 import 'package:vcare_app/core/widgets/custom_network_image.dart';
-import 'package:vcare_app/feature/home/data/models/home_model/doctor.dart';
+import 'package:vcare_app/feature/home/data/models/specializations_model/doctor.dart';
 
-class DoctorListViewItemHorizontal extends StatelessWidget {
-  const DoctorListViewItemHorizontal({Key? key, required this.doctor})
+class DoctorsListViewItemHorizontal extends StatelessWidget {
+  const DoctorsListViewItemHorizontal({Key? key, required this.doctor})
       : super(key: key);
 
   final Doctor doctor;
@@ -17,8 +17,9 @@ class DoctorListViewItemHorizontal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        Navigator.pushNamed(context, Routes.doctorDetailsView,arguments: doctor);
+      onTap: () {
+        Navigator.pushNamed(context, Routes.doctorDetailsView,
+            arguments: doctor);
       },
       child: Container(
         padding: EdgeInsets.all(AppConstants.padding10h),
@@ -57,9 +58,8 @@ class DoctorListViewItemHorizontal extends StatelessWidget {
                     ),
                     Text(
                       doctor.specialization!.name!,
-                      style: AppStyles.textStyle15.copyWith(
-                          color: AppColors.grey
-                      ),
+                      style:
+                          AppStyles.textStyle15.copyWith(color: AppColors.grey),
                     ),
                     Row(
                       children: [

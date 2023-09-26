@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vcare_app/core/utils/app_constants.dart';
 import 'package:vcare_app/core/widgets/gradient_button.dart';
-import 'package:vcare_app/feature/home/data/models/home_model/doctor.dart';
+import 'package:vcare_app/feature/home/data/models/specializations_model/doctor.dart';
 import 'package:vcare_app/feature/home/presentation/views/widgets/DatePicker.dart';
 import 'package:vcare_app/feature/home/presentation/views/widgets/TImeCard.dart';
 import 'package:vcare_app/feature/home/presentation/views/widgets/image.dart';

@@ -21,8 +21,8 @@ class RegisterViewBody extends StatelessWidget {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
         if (state is RegisterSuccessState) {
-          AppConstants.token=state.authenticationModel.data!.token!;
-          Navigator.pushNamed(context, Routes.homeView);
+          AppConstants.token = state.authenticationModel.data!.token!;
+          Navigator.pushNamed(context, Routes.layoutView);
           showSuccessSnackBar(
               context: context, message: state.authenticationModel.message!);
         } else if (state is RegisterFailureState) {

@@ -13,7 +13,7 @@ ThemeData appTheme() {
     //primarySwatch: MaterialColor(0xff673ab7, color),
     scaffoldBackgroundColor: AppColors.white,
     appBarTheme: AppBarTheme(
-        color: Colors.transparent,
+        color: Colors.indigo,
         elevation: 0,
         systemOverlayStyle: AppConstants.systemUiOverlayStyleLight,
         titleTextStyle: AppStyles.textStyle25,

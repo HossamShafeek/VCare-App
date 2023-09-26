@@ -4,10 +4,8 @@ import 'package:flutter/services.dart';
 
 import 'app_colors.dart';
 
-
-
 class AppConstants {
-  static String token='';
+  static String token = '';
   static const String path = 'assets/images/';
   static final double defaultPadding = 12.h;
   static final double defaultPaddingW = 12.w;
@@ -17,6 +15,7 @@ class AppConstants {
   static final double padding10h = 10.h;
   static final double padding20h = 20.h;
   static final double padding10w = 10.w;
+  static final double padding8w = 8.w;
   static final double padding15w = 15.w;
   static final double padding5w = 5.w;
   static final double padding3w = 3.w;
@@ -50,7 +49,8 @@ class AppConstants {
     borderSide: BorderSide.none,
   );
 
-  static const SystemUiOverlayStyle systemUiOverlayStyleLight = SystemUiOverlayStyle(
+  static const SystemUiOverlayStyle systemUiOverlayStyleLight =
+      SystemUiOverlayStyle(
     statusBarIconBrightness: Brightness.light,
     statusBarColor: AppColors.transparent,
   );

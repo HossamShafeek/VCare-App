@@ -15,7 +15,6 @@ class SearchView extends StatefulWidget {
 }
 
 class _SearchViewState extends State<SearchView> {
-
   @override
   void initState() {
     SearchCubit.get(context).getAllDoctors();
@@ -28,12 +27,19 @@ class _SearchViewState extends State<SearchView> {
       appBar: AppBar(
         backgroundColor: AppColors.indigo,
         leading: const CustomBackButton(
-          color: AppColors.white,
         ),
-        title: const SearchTextField(),
+        title: SearchTextField(
+          controller: SearchCubit.get(context).searchController,
+          onChange: (value) {
+            if (!value.startsWith(' ')) {
+              SearchCubit.get(context)
+                  .getSearchedDoctorsList(doctorName: value);
+            }
+          },
+        ),
         actions: [
           Padding(
-            padding:  EdgeInsets.only(right: AppConstants.defaultPadding),
+            padding: EdgeInsets.only(right: AppConstants.defaultPadding),
             child: const Icon(IconBroken.Search),
           )
         ],

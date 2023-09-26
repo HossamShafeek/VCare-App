@@ -22,15 +22,16 @@ class LoginViewBody extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginSuccessState) {
-          if(LoginCubit.get(context).keepMeLoggedIn){
+          if (LoginCubit.get(context).keepMeLoggedIn) {
             CacheHelper.setString(
               key: 'token',
               value: LoginCubit.get(context).loginModel!.data!.token!,
             );
-          }else{
-            AppConstants.token=state.authenticationModel.data!.token!;
+            AppConstants.token = state.authenticationModel.data!.token!;
+          } else {
+            AppConstants.token = state.authenticationModel.data!.token!;
           }
-          Navigator.pushReplacementNamed(context, Routes.homeView);
+          Navigator.pushReplacementNamed(context, Routes.layoutView);
           showSuccessSnackBar(
               context: context, message: state.authenticationModel.message!);
         } else if (state is LoginFailureState) {

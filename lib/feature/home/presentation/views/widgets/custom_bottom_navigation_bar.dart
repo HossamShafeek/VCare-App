@@ -14,7 +14,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BottomNavigationCubit, BottomNavigationState>(
       builder: (context, state) {
-       return  BottomAppBar(
+        return BottomAppBar(
           shape: const CircularNotchedRectangle(),
           notchMargin: 8.w,
           child: SizedBox(

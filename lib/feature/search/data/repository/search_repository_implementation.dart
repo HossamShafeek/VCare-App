@@ -4,7 +4,7 @@ import 'package:vcare_app/core/api/api_services.dart';
 import 'package:vcare_app/core/api/end_points.dart';
 import 'package:vcare_app/core/errors/failures.dart';
 import 'package:vcare_app/core/utils/app_constants.dart';
-import 'package:vcare_app/feature/home/data/models/home_model/doctor.dart';
+import 'package:vcare_app/feature/home/data/models/specializations_model/doctor.dart';
 import 'package:vcare_app/feature/search/data/repository/search_repository.dart';
 
 class SearchRepositoryImplementation extends SearchRepository {

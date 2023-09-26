@@ -2,11 +2,9 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vcare_app/core/errors/failures.dart';
-import 'package:vcare_app/core/utils/app_constants.dart';
 import 'package:vcare_app/feature/authentication/data/models/authentication_model/authentication_model.dart';
 import 'package:vcare_app/feature/authentication/data/repository/authentication_repository.dart';
 import 'package:vcare_app/feature/authentication/presentation/cubits/login_cubit/login_state.dart';
-import 'package:vcare_app/feature/authentication/presentation/cubits/register_cubit/register_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this.authenticationRepository) : super(LoginInitialState());

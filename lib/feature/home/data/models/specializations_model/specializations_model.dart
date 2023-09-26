@@ -1,14 +1,15 @@
 import 'data.dart';
 
-class HomeModel {
+class SpecializationsModel {
   String? message;
   List<Data>? data;
   bool? status;
   int? code;
 
-  HomeModel({this.message, this.data, this.status, this.code});
+  SpecializationsModel({this.message, this.data, this.status, this.code});
 
-  factory HomeModel.fromJson(Map<String, dynamic> json) => HomeModel(
+  factory SpecializationsModel.fromJson(Map<String, dynamic> json) =>
+      SpecializationsModel(
         message: json['message'] as String?,
         data: (json['data'] as List<dynamic>?)
             ?.map((e) => Data.fromJson(e as Map<String, dynamic>))
